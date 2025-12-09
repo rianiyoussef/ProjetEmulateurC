@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include "memory.h"
 
-int main(void)
-{
+int main(int argc, char** argv) {
     Chip8Memory mem;
 
     // Initialiser la RAM à 0

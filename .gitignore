@@ -1,0 +1,4 @@
+build-*
+Makefile
+ProjetEmulateurC/ProjetEmulateurC.mk
+.codelite/
