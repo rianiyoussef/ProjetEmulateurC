@@ -1,24 +1,20 @@
 #include "memory.h"
-#include <string.h>   // memset
-#include <assert.h>   // assert (debug)
+#include <string.h>
+#include <assert.h>
 
-void memory_init(Chip8Memory *mem)
+void ram_init(RAM *ram)
 {
-    // On remet toute la RAM à 0
-    memset(mem->data, 0, CHIP8_MEMORY_SIZE);
+    memset(ram->data, 0, RAM_SIZE);
 }
 
-uint8_t memory_read8(const Chip8Memory *mem, uint16_t addr)
+uint8_t ram_read(const RAM *ram, uint16_t addr)
 {
-    // Sécurité : éviter de lire hors de la mémoire
-    assert(addr < CHIP8_MEMORY_SIZE);
-    return mem->data[addr];
+    assert(addr < RAM_SIZE);
+    return ram->data[addr];
 }
 
-void memory_write8(Chip8Memory *mem, uint16_t addr, uint8_t value)
+void ram_write(RAM *ram, uint16_t addr, uint8_t value)
 {
-    // Sécurité : éviter d'écrire hors de la mémoire
-    assert(addr < CHIP8_MEMORY_SIZE);
-    mem->data[addr] = value;
+    assert(addr < RAM_SIZE);
+    ram->data[addr] = value;
 }
-
